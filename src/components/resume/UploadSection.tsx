@@ -30,8 +30,8 @@ export const UploadSection = () => {
   };
   
   return (
-    <Card className="shadow-lg">
-      <CardContent className="p-6">
+    <div className="rounded-lg border bg-card text-card-foreground shadow-lg">
+      <div className="p-6">
         <h3 className="text-lg font-semibold mb-4 flex items-center">
           <Upload className="w-5 h-5 mr-2 text-theme-600" />
           Upload Your Resume
@@ -81,7 +81,7 @@ export const UploadSection = () => {
             </Button>
           </div>
         )}
-      </CardContent>
-    </Card>
+      </div>
+    </div>
   );
 };
