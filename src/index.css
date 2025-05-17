@@ -201,7 +201,7 @@
 }
 
 .hover-bright {
-  @apply transition-filter duration-300;
+  @apply transition duration-300;
 }
 .hover-bright:hover {
   @apply brightness-110;
