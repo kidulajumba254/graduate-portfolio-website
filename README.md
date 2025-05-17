@@ -104,7 +104,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## Contact
 
-John Doe - john.doe@example.com
+Jesse Kidula - kidulajesse@gmail.com
 
 Project Link: [https://github.com/johndoe/portfolio](https://github.com/johndoe/portfolio)
 
