@@ -4,9 +4,21 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
+import { ArrowRight } from "lucide-react";
 
 const Projects = () => {
   const [activeTab, setActiveTab] = useState("all");
+  const [selectedProject, setSelectedProject] = useState<null | {
+    id: number;
+    title: string;
+    description: string;
+    image: string;
+    category: string;
+    technologies: string[];
+    link: string;
+    featured?: boolean;
+  }>(null);
   
   const projects = [
     {
@@ -84,6 +96,10 @@ const Projects = () => {
   };
   
   const featuredProject = getFeaturedProject();
+
+  const handleOpenProjectDetails = (project) => {
+    setSelectedProject(project);
+  };
   
   return (
     <section id="projects" className="py-20 bg-white">
@@ -109,8 +125,8 @@ const Projects = () => {
                     <Badge key={tech} variant="secondary">{tech}</Badge>
                   ))}
                 </div>
-                <Button asChild className="self-start">
-                  <a href={featuredProject.link}>View Project</a>
+                <Button asChild className="self-start" onClick={() => handleOpenProjectDetails(featuredProject)}>
+                  <span className="flex items-center">View Project <ArrowRight className="ml-2" /></span>
                 </Button>
               </div>
               <div className="h-64 md:h-auto">
@@ -159,8 +175,12 @@ const Projects = () => {
                     </div>
                   </CardContent>
                   <CardFooter className="px-6 pb-6 pt-0">
-                    <Button asChild variant="outline" className="w-full">
-                      <a href={project.link}>View Details</a>
+                    <Button 
+                      variant="outline" 
+                      className="w-full"
+                      onClick={() => handleOpenProjectDetails(project)}
+                    >
+                      <span className="flex items-center">View Details <ArrowRight className="ml-2" /></span>
                     </Button>
                   </CardFooter>
                 </Card>
@@ -169,6 +189,48 @@ const Projects = () => {
           </TabsContent>
         </Tabs>
       </div>
+
+      {/* Project Details Dialog */}
+      <Dialog open={!!selectedProject} onOpenChange={(open) => !open && setSelectedProject(null)}>
+        <DialogContent className="max-w-3xl">
+          {selectedProject && (
+            <>
+              <DialogHeader>
+                <DialogTitle className="text-2xl">{selectedProject.title}</DialogTitle>
+                <DialogDescription className="text-sm text-gray-500">
+                  {selectedProject.category.charAt(0).toUpperCase() + selectedProject.category.slice(1)} Project
+                </DialogDescription>
+              </DialogHeader>
+              
+              <div className="mt-4">
+                <img 
+                  src={selectedProject.image} 
+                  alt={selectedProject.title}
+                  className="w-full h-64 object-cover rounded-md mb-6"
+                />
+                
+                <h4 className="text-lg font-semibold mb-2">Project Overview</h4>
+                <p className="text-gray-700 mb-6">{selectedProject.description}</p>
+                
+                <h4 className="text-lg font-semibold mb-2">Technologies Used</h4>
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {selectedProject.technologies.map(tech => (
+                    <Badge key={tech} variant="secondary">{tech}</Badge>
+                  ))}
+                </div>
+                
+                <div className="flex justify-end">
+                  <Button asChild>
+                    <a href={selectedProject.link} target="_blank" rel="noopener noreferrer">
+                      Visit Project
+                    </a>
+                  </Button>
+                </div>
+              </div>
+            </>
+          )}
+        </DialogContent>
+      </Dialog>
     </section>
   );
 };

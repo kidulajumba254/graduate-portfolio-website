@@ -2,6 +2,8 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { Link as LinkIcon } from "lucide-react";
+import { NotificationsPopover } from "@/components/notifications/NotificationsPopover";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -34,35 +36,47 @@ const Navbar = () => {
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-8">
           <NavLinks />
-          <Button asChild>
-            <a href="#contact">Contact Me</a>
-          </Button>
+          <div className="flex items-center gap-3">
+            <NotificationsPopover />
+            <Button asChild>
+              <a href="#contact" className="flex items-center gap-1">
+                <LinkIcon className="w-4 h-4" />
+                Let's Connect
+              </a>
+            </Button>
+          </div>
         </div>
 
         {/* Mobile Menu Button */}
-        <button
-          className="md:hidden text-gray-700"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        >
-          {isMobileMenuOpen ? (
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          ) : (
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-          )}
-        </button>
+        <div className="md:hidden flex items-center gap-2">
+          <NotificationsPopover />
+          <button
+            className="text-gray-700"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
+            {isMobileMenuOpen ? (
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            ) : (
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            )}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Navigation */}
       {isMobileMenuOpen && (
         <div className="md:hidden bg-white shadow-lg absolute w-full py-4 animate-fade-in">
           <div className="flex flex-col space-y-4 px-6">
-            <NavLinks mobile setMobileMenuOpen={setIsMobileMenuOpen} />
+            <NavLinks mobile={true} setMobileMenuOpen={setIsMobileMenuOpen} />
             <Button asChild>
-              <a href="#contact" onClick={() => setIsMobileMenuOpen(false)}>Contact Me</a>
+              <a href="#contact" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-1">
+                <LinkIcon className="w-4 h-4" />
+                Let's Connect
+              </a>
             </Button>
           </div>
         </div>
@@ -71,9 +85,14 @@ const Navbar = () => {
   );
 };
 
-const NavLinks = ({ mobile = false, setMobileMenuOpen = () => {} }) => {
+interface NavLinksProps {
+  mobile?: boolean;
+  setMobileMenuOpen?: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const NavLinks = ({ mobile = false, setMobileMenuOpen }: NavLinksProps) => {
   const handleClick = () => {
-    if (mobile) {
+    if (mobile && setMobileMenuOpen) {
       setMobileMenuOpen(false);
     }
   };
@@ -84,6 +103,7 @@ const NavLinks = ({ mobile = false, setMobileMenuOpen = () => {} }) => {
     { name: "Skills", href: "#skills" },
     { name: "Projects", href: "#projects" },
     { name: "Resume", href: "#resume" },
+    { name: "GPA Calculator", href: "#gpa-calculator" },
   ];
 
   return links.map((link) => (
