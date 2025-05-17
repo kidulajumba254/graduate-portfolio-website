@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Upload } from "lucide-react";
 import { useToast } from "@/components/ui/use-toast";
+import { Card } from "@/components/ui/card";
 
 export const UploadSection = () => {
   const [uploadedFile, setUploadedFile] = useState<File | null>(null);
@@ -29,7 +30,7 @@ export const UploadSection = () => {
   };
   
   return (
-    <div className="rounded-lg border bg-card text-card-foreground shadow-lg">
+    <Card className="shadow-lg">
       <div className="p-6">
         <h3 className="text-lg font-semibold mb-4 flex items-center">
           <Upload className="w-5 h-5 mr-2 text-theme-600" />
@@ -73,7 +74,8 @@ export const UploadSection = () => {
               className="w-full"
               onClick={() => {
                 setUploadedFile(null);
-                document.getElementById('resume-upload') && (document.getElementById('resume-upload') as HTMLInputElement).value = '';
+                const uploadInput = document.getElementById('resume-upload') as HTMLInputElement;
+                if (uploadInput) uploadInput.value = '';
               }}
             >
               Clear
@@ -81,6 +83,6 @@ export const UploadSection = () => {
           </div>
         )}
       </div>
-    </div>
+    </Card>
   );
 };
