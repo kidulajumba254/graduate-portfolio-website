@@ -35,7 +35,7 @@ A modern, responsive personal portfolio website for a Business Information Techn
 
 ```bash
 git clone <your-repository-url>
-cd john-doe-portfolio
+cd jesse-kidula-portfolio
 ```
 
 2. **Install dependencies**
@@ -59,7 +59,7 @@ npm run build
 ## Project Structure
 
 ```
-john-doe-portfolio/
+jesse-kidula-portfolio/
 ├── public/                  # Static assets
 ├── src/
 │   ├── components/          # React components
