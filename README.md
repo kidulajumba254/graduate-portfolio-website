@@ -1,5 +1,4 @@
-
-# John Doe - Personal Portfolio Website
+Modernized Personal Portfolio Website
 
 ![Portfolio Preview](public/preview.png)
 
