@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { UploadIcon, DownloadIcon } from "lucide-react";
+import { Upload, Download } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 const Resume = () => {
@@ -174,14 +174,14 @@ const Resume = () => {
             <Card className="shadow-lg">
               <CardContent className="p-6">
                 <h3 className="text-lg font-semibold mb-4 flex items-center">
-                  <DownloadIcon className="w-5 h-5 mr-2 text-theme-600" />
+                  <Download className="w-5 h-5 mr-2 text-theme-600" />
                   Download CV
                 </h3>
                 <p className="text-gray-600 text-sm mb-4">
                   Download my complete CV in PDF format for a comprehensive overview of my skills and experience.
                 </p>
                 <Button onClick={handleDownload} className="w-full flex items-center justify-center gap-2">
-                  <DownloadIcon className="w-4 h-4" />
+                  <Download className="w-4 h-4" />
                   Download CV
                 </Button>
               </CardContent>
@@ -190,7 +190,7 @@ const Resume = () => {
             <Card className="shadow-lg">
               <CardContent className="p-6">
                 <h3 className="text-lg font-semibold mb-4 flex items-center">
-                  <UploadIcon className="w-5 h-5 mr-2 text-theme-600" />
+                  <Upload className="w-5 h-5 mr-2 text-theme-600" />
                   Upload Your Resume
                 </h3>
                 <p className="text-gray-600 text-sm mb-4">
@@ -217,7 +217,7 @@ const Resume = () => {
                     </div>
                   ) : (
                     <label htmlFor="resume-upload" className="cursor-pointer text-center">
-                      <UploadIcon className="w-10 h-10 mb-2 text-gray-400 mx-auto" />
+                      <Upload className="w-10 h-10 mb-2 text-gray-400 mx-auto" />
                       <p className="text-sm font-medium text-gray-700">Click to upload your resume</p>
                       <p className="text-xs text-gray-500 mt-1">PDF (MAX. 5MB)</p>
                     </label>
