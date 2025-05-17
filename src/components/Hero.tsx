@@ -1,42 +1,80 @@
 
 import { Button } from "@/components/ui/button";
 import { BriefcaseIcon, DownloadIcon } from "lucide-react";
+import { useEffect, useRef } from "react";
 
 const Hero = () => {
+  const heroRef = useRef<HTMLDivElement>(null);
+  
+  useEffect(() => {
+    // Parallax effect on mouse move
+    const handleMouseMove = (e: MouseEvent) => {
+      if (!heroRef.current) return;
+      
+      const elements = heroRef.current.querySelectorAll(".parallax-element");
+      const xPos = (window.innerWidth / 2 - e.clientX) / 25;
+      const yPos = (window.innerHeight / 2 - e.clientY) / 25;
+      
+      elements.forEach((el, i) => {
+        const speed = i % 2 === 0 ? 1 : -1;
+        const htmlEl = el as HTMLElement;
+        htmlEl.style.transform = `translate(${xPos * speed}px, ${yPos * speed}px)`;
+      });
+    };
+    
+    window.addEventListener("mousemove", handleMouseMove);
+    
+    // Add fancy entrance animations
+    const textElements = document.querySelectorAll(".animate-text-entrance");
+    textElements.forEach((el, i) => {
+      el.classList.add("opacity-0");
+      setTimeout(() => {
+        el.classList.remove("opacity-0");
+        el.classList.add("animate-fade-in");
+      }, 300 * i);
+    });
+    
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+    };
+  }, []);
+  
   return (
     <section 
       id="home" 
+      ref={heroRef}
       className="relative min-h-screen flex items-center pt-16 overflow-hidden bg-gradient-to-b from-secondary to-white"
     >
       <div className="absolute inset-0 z-0">
         <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-white to-transparent"></div>
-        <div className="absolute top-1/3 right-1/4 w-64 h-64 bg-theme-300 rounded-full blur-3xl opacity-20 animate-pulse"></div>
-        <div className="absolute top-1/4 left-1/3 w-96 h-96 bg-theme-400 rounded-full blur-3xl opacity-10"></div>
+        <div className="absolute top-1/3 right-1/4 w-64 h-64 bg-theme-300 rounded-full blur-3xl opacity-20 animate-pulse parallax-element"></div>
+        <div className="absolute top-1/4 left-1/3 w-96 h-96 bg-theme-400 rounded-full blur-3xl opacity-10 parallax-element"></div>
+        <div className="absolute bottom-1/4 right-1/3 w-48 h-48 bg-theme-200 rounded-full blur-2xl opacity-20 parallax-element"></div>
       </div>
       
       <div className="container relative z-10 mx-auto px-4 flex flex-col md:flex-row items-center">
         <div className="md:w-1/2 space-y-6 text-center md:text-left">
-          <p className="text-theme-600 font-medium animate-slide-in">Hello, my name is</p>
-          <h1 className="animate-fade-in">
-            <span className="block">John Doe</span>
-            <span className="block text-3xl md:text-4xl lg:text-5xl mt-2 text-gray-600">
+          <p className="text-theme-600 font-medium animate-text-entrance">Hello, my name is</p>
+          <h1 className="animate-text-entrance">
+            <span className="block transform transition-all hover:scale-105 hover:text-theme-700">John Doe</span>
+            <span className="block text-3xl md:text-4xl lg:text-5xl mt-2 text-gray-600 animate-text-entrance">
               Business IT Professional
             </span>
           </h1>
           
-          <p className="text-lg text-gray-600 max-w-lg mx-auto md:mx-0 animate-fade-in" style={{ animationDelay: "0.2s" }}>
+          <p className="text-lg text-gray-600 max-w-lg mx-auto md:mx-0 animate-text-entrance">
             Recent graduate with a Bachelor's in Business Information Technology,
             passionate about developing innovative solutions to business problems.
           </p>
           
-          <div className="flex flex-wrap justify-center md:justify-start gap-4 pt-2 animate-fade-in" style={{ animationDelay: "0.4s" }}>
-            <Button asChild size="lg" className="gap-2">
+          <div className="flex flex-wrap justify-center md:justify-start gap-4 pt-2 animate-text-entrance">
+            <Button asChild size="lg" className="gap-2 transition-all hover:scale-105 shadow-lg hover:shadow-theme-300/50">
               <a href="#projects">
                 <BriefcaseIcon className="w-4 h-4" />
                 View Projects
               </a>
             </Button>
-            <Button asChild variant="outline" size="lg" className="gap-2">
+            <Button asChild variant="outline" size="lg" className="gap-2 transition-all hover:scale-105 hover:bg-theme-50 hover:border-theme-300">
               <a href="#resume">
                 <DownloadIcon className="w-4 h-4" />
                 Download CV
@@ -44,12 +82,12 @@ const Hero = () => {
             </Button>
           </div>
           
-          <div className="flex justify-center md:justify-start gap-6 pt-4 animate-fade-in" style={{ animationDelay: "0.6s" }}>
+          <div className="flex justify-center md:justify-start gap-6 pt-4 animate-text-entrance">
             {["LinkedIn", "GitHub", "Twitter"].map((platform) => (
               <a 
                 key={platform}
                 href="#" 
-                className="text-gray-600 hover:text-theme-600 transition-colors"
+                className="text-gray-600 hover:text-theme-600 transition-all hover:scale-125 transform"
                 aria-label={platform}
               >
                 <SocialIcon platform={platform} />
@@ -58,17 +96,17 @@ const Hero = () => {
           </div>
         </div>
         
-        <div className="md:w-1/2 mt-12 md:mt-0 flex justify-center items-center animate-fade-in" style={{ animationDelay: "0.2s" }}>
-          <div className="relative">
-            <div className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white shadow-xl">
+        <div className="md:w-1/2 mt-12 md:mt-0 flex justify-center items-center animate-text-entrance">
+          <div className="relative transform transition-all hover:scale-105 duration-500">
+            <div className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white shadow-xl hover:shadow-2xl hover:border-theme-100 transition-all duration-300">
               <img
                 src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
                 alt="John Doe"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover transform hover:scale-110 transition-transform duration-700"
               />
             </div>
-            <div className="absolute -bottom-4 right-0 bg-white rounded-full p-4 shadow-lg">
-              <div className="bg-theme-100 p-3 rounded-full">
+            <div className="absolute -bottom-4 right-0 bg-white rounded-full p-4 shadow-lg hover:shadow-xl transition-shadow parallax-element">
+              <div className="bg-theme-100 p-3 rounded-full transform transition-transform hover:rotate-12">
                 <BriefcaseIcon className="w-8 h-8 text-theme-600" />
               </div>
             </div>
@@ -76,11 +114,11 @@ const Hero = () => {
         </div>
       </div>
       
-      <div className="absolute bottom-10 left-0 right-0 flex justify-center animate-bounce">
-        <a href="#about" aria-label="Scroll down">
+      <div className="absolute bottom-10 left-0 right-0 flex justify-center animate-bounce hover:animate-none hover:translate-y-1 transition-all">
+        <a href="#about" aria-label="Scroll down" className="transform hover:scale-125 transition-transform">
           <svg 
             xmlns="http://www.w3.org/2000/svg" 
-            className="h-8 w-8 text-gray-500" 
+            className="h-8 w-8 text-gray-500 hover:text-theme-600 transition-colors" 
             fill="none" 
             viewBox="0 0 24 24" 
             stroke="currentColor"
