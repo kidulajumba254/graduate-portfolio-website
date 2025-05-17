@@ -13,6 +13,12 @@ const Footer = () => {
     { name: "Contact", href: "#contact" }
   ];
   
+  const socialLinks = [
+    { platform: "LinkedIn", url: "https://www.linkedin.com/in/johndoe/" },
+    { platform: "GitHub", url: "https://github.com/johndoe" },
+    { platform: "Twitter", url: "https://twitter.com/johndoe" }
+  ];
+  
   return (
     <footer className="bg-gray-900 text-white pt-16 pb-8">
       <div className="container mx-auto">
@@ -26,14 +32,16 @@ const Footer = () => {
               system analysis, and web development. Passionate about delivering innovative IT solutions.
             </p>
             <div className="flex space-x-4">
-              {["LinkedIn", "GitHub", "Twitter"].map((platform) => (
+              {socialLinks.map((social) => (
                 <a 
-                  key={platform}
-                  href="#" 
+                  key={social.platform}
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-gray-400 hover:text-theme-400 transition-colors"
-                  aria-label={platform}
+                  aria-label={social.platform}
                 >
-                  <SocialIcon platform={platform} />
+                  <SocialIcon platform={social.platform} />
                 </a>
               ))}
             </div>

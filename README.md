@@ -1,73 +1,117 @@
-# Welcome to your Lovable project
 
-## Project info
+# John Doe - Personal Portfolio Website
 
-**URL**: https://lovable.dev/projects/78450601-bc98-4d9e-8d16-841518002d97
+![Portfolio Preview](public/preview.png)
 
-## How can I edit this code?
+## Overview
 
-There are several ways of editing your application.
+A modern, responsive personal portfolio website for a Business Information Technology graduate specializing in database management, system analysis, and web development. This site showcases skills, projects, education history, work experience, and provides interactive features like a GPA calculator, profile image upload, and an AI assistant.
 
-**Use Lovable**
+## Features
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/78450601-bc98-4d9e-8d16-841518002d97) and start prompting.
+- **Responsive Design**: Fully responsive layout that works on all devices
+- **Modern UI**: Clean, professional interface with smooth animations
+- **Interactive Sections**:
+  - Profile image upload
+  - GPA calculator with grade visualization
+  - QR code generator
+  - Resume upload/download functionality
+  - AI Assistant for visitor interaction
+- **Notifications System**: Real-time notification system
+- **Social Media Integration**: Linked profiles for professional networking
+- **Contact Form**: Direct message capability for potential employers
 
-Changes made via Lovable will be committed automatically to this repo.
+## Tech Stack
 
-**Use your preferred IDE**
+- **Frontend**: React, TypeScript, Vite
+- **UI Library**: Tailwind CSS, shadcn UI
+- **State Management**: React Context API
+- **Routing**: React Router
+- **Form Validation**: React Hook Form with Zod
+- **Data Fetching**: TanStack Query
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## Installation and Setup
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+1. **Clone the repository**
 
-Follow these steps:
+```bash
+git clone <your-repository-url>
+cd john-doe-portfolio
+```
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+2. **Install dependencies**
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+```bash
+npm install
+```
 
-# Step 3: Install the necessary dependencies.
-npm i
+3. **Start the development server**
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+```bash
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+4. **Build for production**
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+```bash
+npm run build
+```
 
-**Use GitHub Codespaces**
+## Project Structure
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+```
+john-doe-portfolio/
+├── public/                  # Static assets
+├── src/
+│   ├── components/          # React components
+│   │   ├── ui/              # UI components from shadcn
+│   │   ├── gpa/            # GPA calculator components
+│   │   ├── profile/        # Profile related components
+│   │   ├── resume/         # Resume section components
+│   │   └── assistant/      # AI Assistant components
+│   ├── lib/                # Utility functions
+│   ├── pages/              # Page components
+│   ├── hooks/              # Custom React hooks
+│   ├── App.tsx             # Main App component
+│   ├── main.tsx            # Entry point
+│   └── index.css           # Global styles
+├── tailwind.config.ts      # Tailwind configuration
+├── tsconfig.json           # TypeScript configuration
+└── package.json            # Project dependencies
+```
 
-## What technologies are used for this project?
+## Customization
 
-This project is built with:
+To customize this portfolio for your own use:
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+1. Update personal information in the components
+2. Replace project details in the Projects component
+3. Add your own education and work history in ResumeData.ts
+4. Update contact information in the Contact and Footer components
+5. Replace social media links in the Footer component
 
-## How can I deploy this project?
+## Deployment
 
-Simply open [Lovable](https://lovable.dev/projects/78450601-bc98-4d9e-8d16-841518002d97) and click on Share -> Publish.
+This project can be deployed on various platforms such as:
 
-## Can I connect a custom domain to my Lovable project?
+- Vercel
+- Netlify
+- GitHub Pages
+- AWS Amplify
 
-Yes, you can!
+## License
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+This project is licensed under the MIT License - see the LICENSE file for details.
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+## Contact
+
+John Doe - john.doe@example.com
+
+Project Link: [https://github.com/johndoe/portfolio](https://github.com/johndoe/portfolio)
+
+## Acknowledgments
+
+- [Tailwind CSS](https://tailwindcss.com/)
+- [shadcn UI](https://ui.shadcn.com/)
+- [React](https://reactjs.org/)
+- [Vite](https://vitejs.dev/)
