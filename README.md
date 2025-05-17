@@ -35,7 +35,7 @@ A modern, responsive personal portfolio website for a Business Information Techn
 
 ```bash
 git clone <your-repository-url>
-cd jesse-kidula-portfolio
+cd graduate-portfolio-website
 ```
 
 2. **Install dependencies**
@@ -106,7 +106,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 Jesse Kidula - kidulajesse@gmail.com
 
-Project Link: [https://github.com/johndoe/portfolio](https://github.com/johndoe/portfolio)
+Project Link: [https://github.com/graduate-portfolio-website/portfolio](https://github.com/graduate-portfolio-website/portfolio)
 
 ## Acknowledgments
 
