@@ -34,7 +34,7 @@ A modern, responsive personal portfolio website for a Business Information Techn
 1. **Clone the repository**
 
 ```bash
-git clone <your-repository-url>
+git clone <https://github.com/kidulajumba254/graduate-portfolio-website.git>
 cd graduate-portfolio-website
 ```
 
