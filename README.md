@@ -35,7 +35,7 @@ A modern, responsive personal portfolio website for a Business Information Techn
 
 ```bash
 git clone <https://github.com/kidulajumba254/graduate-portfolio-website.git>
-cd graduate-portfolio-website
+cd graduate-portfolio-website-main
 ```
 
 2. **Install dependencies**
