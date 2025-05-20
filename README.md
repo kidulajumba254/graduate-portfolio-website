@@ -106,7 +106,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 Jesse Kidula - kidulajesse@gmail.com
 
-Project Link: [https://github.com/graduate-portfolio-website/portfolio](https://github.com/graduate-portfolio-website/portfolio)
+Project Link: (https://github.com/graduate-portfolio-website/)
 
 ## Acknowledgments
 
