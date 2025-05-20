@@ -1,10 +1,9 @@
 Modernized Personal Portfolio Website
 
-![Portfolio Preview](public/preview.png)
-
 ## Overview
 
 A modern, responsive personal portfolio website for a Business Information Technology graduate specializing in database management, system analysis, and web development. This site showcases skills, projects, education history, work experience, and provides interactive features like a GPA calculator, profile image upload, and an AI assistant.
+![image](https://github.com/user-attachments/assets/7085b674-deae-4a3b-becc-44d58aa8df7d)
 
 ## Features
 
@@ -13,12 +12,17 @@ A modern, responsive personal portfolio website for a Business Information Techn
 - **Interactive Sections**:
   - Profile image upload
   - GPA calculator with grade visualization
+    ![image](https://github.com/user-attachments/assets/613b51f2-b6ce-4ff6-b2e2-18c96dd4c88f)
   - QR code generator
+    ![image](https://github.com/user-attachments/assets/fcde1c12-796d-4718-b258-e330bf6fbb40)
+
   - Resume upload/download functionality
   - AI Assistant for visitor interaction
 - **Notifications System**: Real-time notification system
 - **Social Media Integration**: Linked profiles for professional networking
 - **Contact Form**: Direct message capability for potential employers
+  ![image](https://github.com/user-attachments/assets/7f7e3ce9-cdcb-4a22-b353-5dbd2b51b695)
+
 
 ## Tech Stack
 
@@ -106,7 +110,6 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 Jesse Kidula - kidulajesse@gmail.com
 
-Project Link: (https://github.com/graduate-portfolio-website/)
 
 ## Acknowledgments
 
