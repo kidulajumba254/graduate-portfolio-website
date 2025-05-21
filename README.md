@@ -15,14 +15,11 @@ A modern, responsive personal portfolio website for a Business Information Techn
     ![image](https://github.com/user-attachments/assets/613b51f2-b6ce-4ff6-b2e2-18c96dd4c88f)
   - QR code generator
     ![image](https://github.com/user-attachments/assets/fcde1c12-796d-4718-b258-e330bf6fbb40)
-
   - Resume upload/download functionality
-  - AI Assistant for visitor interaction
 - **Notifications System**: Real-time notification system
 - **Social Media Integration**: Linked profiles for professional networking
 - **Contact Form**: Direct message capability for potential employers
   ![image](https://github.com/user-attachments/assets/7f7e3ce9-cdcb-4a22-b353-5dbd2b51b695)
-
 
 ## Tech Stack
 
