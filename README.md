@@ -3,14 +3,15 @@ Modernized Personal Portfolio Website
 ## Overview
 
 A modern, responsive personal portfolio website for a Business Information Technology graduate specializing in database management, system analysis, and web development. This site showcases skills, projects, education history, work experience, and provides interactive features like a GPA calculator, profile image upload.
-![image](https://github.com/user-attachments/assets/7085b674-deae-4a3b-becc-44d58aa8df7d)
-
+![image](https://github.com/user-attachments/assets/2824e3b5-619e-4583-b890-20a5ef978bc7)
 ## Features
 
 - **Responsive Design**: Fully responsive layout that works on all devices
 - **Modern UI**: Clean, professional interface with smooth animations
 - **Interactive Sections**:
   - Profile image upload
+  - ![image](https://github.com/user-attachments/assets/637b23c7-37c1-4420-af3f-284964fe3e99)
+
   - GPA calculator with grade visualization
     ![image](https://github.com/user-attachments/assets/613b51f2-b6ce-4ff6-b2e2-18c96dd4c88f)
   - QR code generator
